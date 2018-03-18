@@ -3,9 +3,9 @@ module.exports = {
     title: 'Ivan Malagon Blog',
     author: 'Ivan Malagon',
     description: '',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    siteUrl: 'https://ivanmalagon.github.io/blog/',
   },
-  pathPrefix: '/gatsby-starter-blog',
+  pathPrefix: '/blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
