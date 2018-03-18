@@ -1,12 +1,8 @@
 {
   "assetsByChunkName": {
-    "path---my-second-post": [
-      "path---my-second-post-f38af59545d70644727f.js",
-      "path---my-second-post-f38af59545d70644727f.js.map"
-    ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-323a6793a6b53f17a8ce.js",
-      "component---src-pages-index-js-323a6793a6b53f17a8ce.js.map"
+      "component---src-pages-index-js-c5d4835786bbcf996aad.js",
+      "component---src-pages-index-js-c5d4835786bbcf996aad.js.map"
     ],
     "path---": [
       "path----557518bd178906f8d58a.js",
@@ -17,24 +13,20 @@
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-templates-blog-post-js": [
-      "component---src-templates-blog-post-js-a88cde7d5c7113708d6a.js",
-      "component---src-templates-blog-post-js-a88cde7d5c7113708d6a.js.map"
+      "component---src-templates-blog-post-js-3f2377064dc48e0e3c28.js",
+      "component---src-templates-blog-post-js-3f2377064dc48e0e3c28.js.map"
     ],
     "component---src-layouts-index-js": [
       "component---src-layouts-index-js-3c47bc06c0b551d4f936.js",
       "component---src-layouts-index-js-3c47bc06c0b551d4f936.js.map"
     ],
-    "path---hi-folks": [
-      "path---hi-folks-aba678e5ce90804952ad.js",
-      "path---hi-folks-aba678e5ce90804952ad.js.map"
-    ],
     "path---index": [
-      "path---index-743d3d616808d627b697.js",
-      "path---index-743d3d616808d627b697.js.map"
+      "path---index-6688f7d4f5f2fccd35ca.js",
+      "path---index-6688f7d4f5f2fccd35ca.js.map"
     ],
     "path---hello-world": [
-      "path---hello-world-4b605c870a564babac69.js",
-      "path---hello-world-4b605c870a564babac69.js.map"
+      "path---hello-world-67e349de0579a42f15b7.js",
+      "path---hello-world-67e349de0579a42f15b7.js.map"
     ],
     "commons": [
       "commons-c3b9f75578a3021e3093.js",
@@ -47,9 +39,9 @@
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-4924b3437bed036a3999.js",
+      "app-4c0d2290cac8f1bd7ddc.js",
       "build-js-styles.css",
-      "app-4924b3437bed036a3999.js.map",
+      "app-4c0d2290cac8f1bd7ddc.js.map",
       "build-js-styles.css.map"
     ]
   }

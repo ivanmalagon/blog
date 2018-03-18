@@ -1,0 +1,2 @@
+webpackJsonp([0x834755aae49e],{502:function(a,e){a.exports={data:{site:{siteMetadata:{title:"Ivan Malagon Blog",author:"Ivan Malagon"}},markdownRemark:{id:"/Users/ivan/Code/Personal/blog/src/pages/hello-world/index.md absPath of file >>> MarkdownRemark",html:"<p>Y aquí va mi bio.</p>",frontmatter:{title:"Bio",date:"March 18, 2018"}}},pathContext:{slug:"/hello-world/",previous:!1,next:!1}}}});
+//# sourceMappingURL=path---hello-world-67e349de0579a42f15b7.js.map

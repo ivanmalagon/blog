@@ -1,0 +1,2 @@
+webpackJsonp([0x81b8806e4260],{503:function(e,t){e.exports={data:{site:{siteMetadata:{title:"Ivan Malagon Blog"}},allMarkdownRemark:{edges:[{node:{excerpt:"Y aquí va mi bio.",fields:{slug:"/hello-world/"},frontmatter:{date:"18 March, 2018",title:"Bio"}}}]}},pathContext:{}}}});
+//# sourceMappingURL=path---index-6688f7d4f5f2fccd35ca.js.map
