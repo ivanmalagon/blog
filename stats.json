@@ -1,8 +1,8 @@
 {
   "assetsByChunkName": {
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-c5d4835786bbcf996aad.js",
-      "component---src-pages-index-js-c5d4835786bbcf996aad.js.map"
+      "component---src-pages-index-js-d89dc679bfa48259c116.js",
+      "component---src-pages-index-js-d89dc679bfa48259c116.js.map"
     ],
     "path---": [
       "path----557518bd178906f8d58a.js",
@@ -13,20 +13,16 @@
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-templates-blog-post-js": [
-      "component---src-templates-blog-post-js-3f2377064dc48e0e3c28.js",
-      "component---src-templates-blog-post-js-3f2377064dc48e0e3c28.js.map"
+      "component---src-templates-blog-post-js-8aa377e220120427e20b.js",
+      "component---src-templates-blog-post-js-8aa377e220120427e20b.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-3c47bc06c0b551d4f936.js",
-      "component---src-layouts-index-js-3c47bc06c0b551d4f936.js.map"
+      "component---src-layouts-index-js-a654e8cb53df66b6138e.js",
+      "component---src-layouts-index-js-a654e8cb53df66b6138e.js.map"
     ],
     "path---index": [
-      "path---index-6688f7d4f5f2fccd35ca.js",
-      "path---index-6688f7d4f5f2fccd35ca.js.map"
-    ],
-    "path---hello-world": [
-      "path---hello-world-67e349de0579a42f15b7.js",
-      "path---hello-world-67e349de0579a42f15b7.js.map"
+      "path---index-363b64f771a4db41605b.js",
+      "path---index-363b64f771a4db41605b.js.map"
     ],
     "commons": [
       "commons-c3b9f75578a3021e3093.js",
@@ -39,10 +35,14 @@
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-4c0d2290cac8f1bd7ddc.js",
+      "app-8ffae8a252d387650aa1.js",
       "build-js-styles.css",
-      "app-4c0d2290cac8f1bd7ddc.js.map",
+      "app-8ffae8a252d387650aa1.js.map",
       "build-js-styles.css.map"
+    ],
+    "path---20180319-visualizing-rhymes-structures": [
+      "path---20180319-visualizing-rhymes-structures-53ff234da3ba2f50ee93.js",
+      "path---20180319-visualizing-rhymes-structures-53ff234da3ba2f50ee93.js.map"
     ]
   }
 }

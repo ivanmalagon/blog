@@ -1,1 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ivan Malagon Blog]]></title><description><![CDATA[Ivan Malagon Blog]]></description><link>https://ivanmalagon.github.io/blog/</link><generator>RSS for Node</generator><lastBuildDate>Sun, 18 Mar 2018 21:55:08 GMT</lastBuildDate><item><title><![CDATA[Bio]]></title><description><![CDATA[Y aquí va mi bio.]]></description><link>https://ivanmalagon.github.io/blog//hello-world/</link><guid isPermaLink="false">https://ivanmalagon.github.io/blog//hello-world/</guid><pubDate>Sun, 18 Mar 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Y aquí va mi bio.&lt;/p&gt;</content:encoded></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ivan Malagon Blog]]></title><description><![CDATA[Ivan Malagon Blog]]></description><link>https://ivanmalagon.github.io/blog/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 19 Mar 2018 22:17:06 GMT</lastBuildDate><item><title><![CDATA[Visualizing rhyme structures]]></title><description><![CDATA[I love rap music since I was a kid. Back in the day, in Spain we only had access to the mainstream rap. My first memories are MC Hammer and…]]></description><link>https://ivanmalagon.github.io/blog//20180319-visualizing-rhymes-structures/</link><guid isPermaLink="false">https://ivanmalagon.github.io/blog//20180319-visualizing-rhymes-structures/</guid><pubDate>Mon, 19 Mar 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I love rap music since I was a kid. Back in the day, in Spain we only had access to the mainstream rap. My first memories are MC Hammer and Vanilla Ice. I was hooked to that sound at first listening. Then, Kris Kross came out and I bought my first vinyl. And then, it became easier to buy some imported records and Pete Rock &amp;#x26; CL Smooth, Wu Tang Clan and Snoop Dogg entered my life.&lt;/p&gt;
+&lt;p&gt;Lucky for me, I was born in a city that would become a cornerstone in spanish rap: Zaragoza. I didn’t know at the time but there were a flourishing Hip Hop scene in my hometown. As soon as I stumble upon it, I decided that I’d learn how to make rap music, both rhyming and producing.&lt;/p&gt;
+&lt;p&gt;Since that day, I’ve been a rap nerd. As I was trying to learn and improve my MC skills, I started to recognize patterns. Why some rappers sounded better than others, what their tricks were. The key is the structures that they built with phonemes, combining words. The day came where I was visualizing those structures in real time in my head.&lt;/p&gt;
+&lt;p&gt;Twenty years forward. I discover a video on Youtube called &lt;a href=&quot;https://www.youtube.com/watch?v=QWveXdj6oZU&quot;&gt;Rapping, deconstructed&lt;/a&gt; that captured exactly what we emcees saw in our brains. With a simple color coding, it was easy for everybody to grasp the complexity that is hidden in apparently simple songs. Rap is usually downgraded, like if it was something easy to write. It is not. And definitely this video showed it in an awesome way.&lt;/p&gt;
+&lt;p&gt;I work at CARTO, where our motto is &lt;em&gt;Make the invisible visible&lt;/em&gt;. We use visualizations to bring insights to the surface that were hidden in data. Every month we hold a CARTOchat. It’s a talk where someone shares an interesting topic with us. So I coded an app to show these sound structures in five spanish rap songs in one of these talks.&lt;/p&gt;
+&lt;p&gt;I coded the first version using &lt;a href=&quot;https://svelte.technology/&quot;&gt;Svelte&lt;/a&gt; (impressive library) to get quick feedback on how hard it would be to sync annotated text with music. It was feasible. I ended up using React so I could practice a bit more with it. I captured the result in video to share it on Youtube. I don’t share the code because I had to rush to get it done and took lots of shortcuts. Quite far from clean code.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=x7_y7wcDecM&amp;#x26;list=PLW6By36V3G9HcBelksbIeXsF0AGyuv2mK&quot;&gt;Here you can find the playlist&lt;/a&gt;. It starts with the first hit in spanish rap history, that uses the most simple structure possible. Using it as a starting point, every song after it gets more complex.&lt;/p&gt;
+&lt;p&gt;As an example, take this fragment from Xtragos. He’s my partner in crime in the rap group Grossomodo. Almost all syllables compound to paint all verses in colors.&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;
+          &lt;div
+            class=&quot;gatsby-resp-iframe-wrapper&quot;
+            style=&quot;padding-bottom: 50%; position: relative; height: 0; overflow: hidden;margin-bottom: 1.0725rem&quot;
+          &gt;
+            &lt;div&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/7K6dyJGk07I&quot; style=&quot;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          &quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;The bad news are that I was so worried on nailing the talk that I didn’t press the Rec button. I don’t know if I will do it again but it that happens, I’ll press the right button. Fo shizzle.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/make_the_invisible-a5b275d11c298162dc4fcfd71e1e9089-5a71e.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAIBAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAABAgD/2gAMAwEAAhADEAAAAfOrIlxTPCRnAn//xAAcEAEAAQQDAAAAAAAAAAAAAAACAQMSISIAEEL/2gAIAQEAAQUCC1SzM5OpqK6pceeZnr//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAaEAACAgMAAAAAAAAAAAAAAAABEQACEBIg/9oACAEBAAY/AtU4jUvFbOMl8//EABsQAQACAwEBAAAAAAAAAAAAAAEAETFBUSFh/9oACAEBAAE/IXoGnkEBA0w/iXHojyZEtqRDVxWhbURfXEt7P//aAAwDAQACAAMAAAAQHyjD/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAEREP/aAAgBAwEBPxCtFHn/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/EIiCz//EAB0QAQADAQACAwAAAAAAAAAAAAEAESExQXFRkaH/2gAIAQEAAT8QBbqo07KmWKAO/Mvt9bIku9pZNoqJr7wl1zkdBsS7OfsGTZy87CgjdB8/cbtT72f/2Q==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Make the invisible visible&quot;
+        title=&quot;&quot;
+        src=&quot;/blog/static/make_the_invisible-a5b275d11c298162dc4fcfd71e1e9089-f8fb9.jpg&quot;
+        srcset=&quot;/blog/static/make_the_invisible-a5b275d11c298162dc4fcfd71e1e9089-e8976.jpg 148w,
+/blog/static/make_the_invisible-a5b275d11c298162dc4fcfd71e1e9089-63df2.jpg 295w,
+/blog/static/make_the_invisible-a5b275d11c298162dc4fcfd71e1e9089-f8fb9.jpg 590w,
+/blog/static/make_the_invisible-a5b275d11c298162dc4fcfd71e1e9089-5a71e.jpg 750w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;a href=&quot;https://www.instagram.com/p/BCQxSQ_kmL6/&quot;&gt;Picture&lt;/a&gt; by Ariana Escobar&lt;/p&gt;</content:encoded></item></channel></rss>
