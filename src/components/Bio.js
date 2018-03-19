@@ -27,10 +27,10 @@ class Bio extends React.Component {
           }}
         />
         <p>
-          Escrito por <strong>Ivan Malagon,</strong> front-end lead en <a href="https://carto.com">CARTO</a> y nerd del Hip-Hop.{' '}
+          Written by <strong>Ivan Malagon,</strong> front-end lead at <a href="https://carto.com">CARTO</a> and Hip&nbsp;Hop nerd. So if you like coding or Rap music {' '}
           <a href="https://twitter.com/hacheka">
-            Puedes seguirme en Twitter
-          </a> o escribirme a hacheka·gmail_com
+            you should follow me on Twitter
+          </a> or you can drop me a line to hacheka·gmail_com
         </p>
       </div>
     )
