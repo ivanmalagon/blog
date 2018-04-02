@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ivan Malagon Blog]]></title><description><![CDATA[Ivan Malagon Blog]]></description><link>https://ivanmalagon.github.io/blog/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 19 Mar 2018 22:19:35 GMT</lastBuildDate><item><title><![CDATA[Visualizing rhyme structures]]></title><description><![CDATA[I love rap music since I was a kid. Back in the day, in Spain we only had access to the mainstream rap. My first memories are MC Hammer and…]]></description><link>https://ivanmalagon.github.io/blog//visualizing-rhymes-structures/</link><guid isPermaLink="false">https://ivanmalagon.github.io/blog//visualizing-rhymes-structures/</guid><pubDate>Mon, 19 Mar 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I love rap music since I was a kid. Back in the day, in Spain we only had access to the mainstream rap. My first memories are MC Hammer and Vanilla Ice. I was hooked to that sound at first listening. Then, Kris Kross came out and I bought my first vinyl. And then, it became easier to buy some imported records and Pete Rock &amp;#x26; CL Smooth, Wu Tang Clan and Snoop Dogg entered my life.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ivan Malagon Blog]]></title><description><![CDATA[Ivan Malagon Blog]]></description><link>https://ivanmalagon.github.io/blog/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 02 Apr 2018 21:15:56 GMT</lastBuildDate><item><title><![CDATA[Adding data to a CARTO dataset]]></title><description><![CDATA[Eating our own dog food In CARTO we have a Slack channel called  #using-carto  where  Iñigo  sets a weekly challenge. We have to use CARTO…]]></description><link>https://ivanmalagon.github.io/blog//adding-data-to-a-carto-dataset/</link><guid isPermaLink="false">https://ivanmalagon.github.io/blog//adding-data-to-a-carto-dataset/</guid><pubDate>Sun, 01 Apr 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Eating our own dog food&lt;/h2&gt;
+&lt;p&gt;In CARTO we have a Slack channel called &lt;code&gt;#using-carto&lt;/code&gt; where &lt;a href=&quot;https://twitter.com/inigo_medina&quot;&gt;Iñigo&lt;/a&gt; sets a weekly challenge. We have to use CARTO tools to answer a very open question. Last week it was:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;I am visiting Madrid and a friend has given me her BiciMAD card.
+I love maps and above all maps made by myself. :)
+I wonder how I could create a map that allowed me  to see easily
+Madrid neighbourhoods and the BiciMAD parkings located in them.
+It would be great to select parkings with the greater capacity,
+so I could be fairly sure of finding a free place for my bike.&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;It’s fun to see how we all end up answering the same question with different approaches. We have to document every step we take, pointing at the pains we discover along the way.&lt;/p&gt;
+&lt;p&gt;A common question here is &lt;em&gt;How can I insert data in CARTO to an existing dataset?&lt;/em&gt;. My take this week with &lt;code&gt;#using-carto&lt;/code&gt; is answering not the original challenge but this other question.&lt;/p&gt;
+&lt;p&gt;BiciMAD is the public bike service of Madrid. They provide an API to check the status of its station network. What I want to do is to feed a dataset in CARTO with the results of an API. It’s a small dataset: 172 bike stations with 11 fields each, mostly numbers. It looks like a job for the SQL API!&lt;/p&gt;
+&lt;h2&gt;Updating your dataset via SQL API&lt;/h2&gt;
+&lt;p&gt;As stated &lt;a href=&quot;https://carto.com/docs/carto-engine/sql-api/&quot;&gt;in the docs&lt;/a&gt;, CARTO SQL API allows you to interact with your tables and data inside CARTO as if you were running SQL statements against a normal database. It even has batch queries to send long-running jobs to the database.&lt;/p&gt;
+&lt;p&gt;Using the BiciMAD bike stations info as an example, I’ll show three different approaches to update your dataset. In all of them we’ll have the restriction of using batch queries. They have a limitation of 16KB size, so we’ll take that into account as we proceed.&lt;/p&gt;
+&lt;h3&gt;Replace all your data&lt;/h3&gt;
+&lt;p&gt;If we don’t need to save historical data, what we can do is to erase all data from the dataset and replace it with the result of the BiciMAD API call. This ensures to have our data up-to-date.&lt;/p&gt;
+&lt;p&gt;As we are using batch queries what we should do is:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Sort the records coming from the API by their ID. We need to delete only the records that will go in the current job. Having them sorted will allow us to know exactly the range of records we need to erase first.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start writing the SELECT query.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;INSERT INTO ${username}.${table} (id, name, dock_bikes, ... , the_geom) VALUES&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Append the values for each record until it reaches the maximum size for a job, saving the first and last id&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;(1, &apos;Avda America&apos;, 24, ... ), 
+(2, &apos;Quevedo&apos;, 15, ... ),
+(3, &apos;Suchil&apos;, 7, ... ),&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;Create a DELETE query with the ids of the records that will go within this job.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;DELETE FROM ${username}.${table} WHERE id &gt;= 1 AND id &lt;= 103&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;Create the job, setting first the DELETE query and then the INSERT one.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;[
+  &quot;DELETE FROM ...&quot;,
+  &quot;INSERT INTO ...
+]&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;h4&gt;PROS&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Easy to implement.&lt;/li&gt;
+&lt;li&gt;Inserting multiple rows in the same SELECT statement allows us to fit more work into a single job.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;CONS&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;While the rows are being inserted, previous ones have already been deleted. It’s a fast operation but you can see only part of the data in the meantime.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Upsert&lt;/h3&gt;
+&lt;p&gt;If you don’t feel comfortable with seeing only part of the data while it’s being updated, you can create UPSERT queries instead of a bulk delete and insert.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;  // You need a unique index on `id` in order to get a conflict
+
+  INSERT INTO ${username}.${table} (id, name, dock_bikes, ..., the_geom)
+    VALUES (${values}, ${geom})
+    ON CONFLICT (id) DO
+      UPDATE SET ${keysAndValues}, the_geom=${geom};
+  `;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;h4&gt;PROS&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Data is always up to date. No visible glitchs while the jobs are running.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;CONS&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Larger queries. That means less queries per job and then, more jobs to run.&lt;/li&gt;
+&lt;li&gt;What do we do with records that die? In our case, if a station gets removed, since we’re only inserting or updating, it’ll be kept in the dataset. Fixing this would require more complex logic to compare the current data with the new one.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Append new data&lt;/h3&gt;
+&lt;p&gt;In this challenge it doesn’t make sense the two previous approaches. If someone is interested in knowing real-time the bike availability, she’d use the official app. We cannot keep the same pace.&lt;/p&gt;
+&lt;p&gt;The use case that it’s more interesting is to save the historical data of the stations, so we can run analyses later to get insights about the hotest stations or usage patterns.&lt;/p&gt;
+&lt;p&gt;And it’s even easier than the two previous strategies. We only need to add a timestamp column and then using a multiple rows statement.&lt;/p&gt;
+&lt;h4&gt;PROS&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Historical data.&lt;/li&gt;
+&lt;li&gt;Easiest to implement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;CONS&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Table becomes very big if you append very often. You’d need to update less frequently or implement a expiry policy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Final implementation&lt;/h2&gt;
+&lt;p&gt;I went for the third approach, updating the table every hour instead of aiming for ‘real-time’.&lt;/p&gt;
+&lt;p&gt;I implemented a Google Cloud HTTP function that calls the API and then builds the batch query jobs. &lt;a href=&quot;https://gist.github.com/ivanmalagon/492fc7a92e54118df77f7a469cd277bb&quot;&gt;The code of the function is in this Gist&lt;/a&gt;. Then, I use an uptime service that pings that URL every hour. I chose StatusCake but there are plenty of them. I did it like that for convenience but you can set a cron job from a server as well.&lt;/p&gt;
+&lt;p&gt;The dataset is public and growing. You can access it &lt;a href=&quot;https://team.carto.com/u/hacheka/tables/bicimad_inc/public&quot;&gt;here&lt;/a&gt;. I plan to let it getting fat all April and then use the resulting dataset to run some analyses on it. Feel free to use it!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Visualizing rhyme structures]]></title><description><![CDATA[I love rap music since I was a kid. Back in the day, in Spain we only had access to the mainstream rap. My first memories are MC Hammer and…]]></description><link>https://ivanmalagon.github.io/blog//visualizing-rhymes-structures/</link><guid isPermaLink="false">https://ivanmalagon.github.io/blog//visualizing-rhymes-structures/</guid><pubDate>Mon, 19 Mar 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I love rap music since I was a kid. Back in the day, in Spain we only had access to the mainstream rap. My first memories are MC Hammer and Vanilla Ice. I was hooked to that sound at first listening. Then, Kris Kross came out and I bought my first vinyl. And then, it became easier to buy some imported records and Pete Rock &amp;#x26; CL Smooth, Wu Tang Clan and Snoop Dogg entered my life.&lt;/p&gt;
 &lt;p&gt;Lucky for me, I was born in a city that would become a cornerstone in spanish rap: Zaragoza. I didn’t know at the time but there were a flourishing Hip Hop scene in my hometown. As soon as I stumble upon it, I decided that I’d learn how to make rap music, both rhyming and producing.&lt;/p&gt;
 &lt;p&gt;Since that day, I’ve been a rap nerd. As I was trying to learn and improve my MC skills, I started to recognize patterns. Why some rappers sounded better than others, what their tricks were. The key is the structures that they built with phonemes, combining words. The day came where I was visualizing those structures in real time in my head.&lt;/p&gt;
 &lt;p&gt;Twenty years forward. I discover a video on Youtube called &lt;a href=&quot;https://www.youtube.com/watch?v=QWveXdj6oZU&quot;&gt;Rapping, deconstructed&lt;/a&gt; that captured exactly what we emcees saw in our brains. With a simple color coding, it was easy for everybody to grasp the complexity that is hidden in apparently simple songs. Rap is usually downgraded, like if it was something easy to write. It is not. And definitely this video showed it in an awesome way.&lt;/p&gt;
