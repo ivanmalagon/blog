@@ -13,7 +13,9 @@ class BlogIndex extends React.Component {
 
     return (
       <div>
-        <Helmet title={siteTitle} />
+        <Helmet title={siteTitle}>
+          <meta name="google-site-verification" content="vT2YGvaeWyFN0zuYRnd_XE161HoUJdt3g_-nvFUrBr4" />
+        </Helmet>
         <Bio />
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
